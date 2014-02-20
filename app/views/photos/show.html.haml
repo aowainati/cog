@@ -1,3 +1,7 @@
-SHOWING YOUR PHOTO
-
-= image_tag @photo.image_file.url(:medium)
+- if @photo
+  = image_tag @photo.image_file.url(:large)
+  THIS PICTURE'S MAD WEIRD DUDE
+- else
+  THERE'S NOTHING HERE WHAT DID YOU DO
+= link_to("UPLOAD MORE OF THIS SHIT", new_photo_path)
+= link_to("OR GO LOOK AT THE OTHER WEIRD SHIT I GOT", photos_path)

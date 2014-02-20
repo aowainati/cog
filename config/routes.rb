@@ -2,6 +2,9 @@ Cog::Application.routes.draw do
   root to: redirect('/photos')
   resources :photos, only: [:index, :new, :show, :create, :destroy]
 
+  post '/photos/:id/coming', to: 'photos#coming'
+  post '/photos/:id/going', to: 'photos#going'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

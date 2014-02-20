@@ -1,1 +1,18 @@
-THIS BE THE INDEX SON
+
+- if @photo
+  .image
+    = image_tag @photo.image_file.url(:large) unless @photo.nil?
+  .voting-forms
+    = form_tag("/photos/#{@photo.to_param}/coming", method: "post") do
+      = submit_tag("COMING")
+    OR 
+    = form_tag("/photos/#{@photo.to_param}/going", method: "post") do
+      = submit_tag("GOING")
+  .counts
+    = "COMING VOTES: #{@photo.coming_count}"
+    = "GOING VOTES: #{@photo.going_count}"
+  .your-ugly-mug
+    = link_to("SHOW US YOUR COMING/GOING FACE", new_photo_path)
+- else
+  = link_to("AIN'T NOTHIN' HERE DOG, GO UPLOAD SOME STUFF", new_photo_path)
+
